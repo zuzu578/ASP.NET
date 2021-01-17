@@ -57,3 +57,7 @@ view 단에서는 어떻게 대응해야 하는가 ?
 view 에서는 컨트롤러에서 return 한 값을 사용하기위해서 @Model.fname 이런식으로 출력을 해주면 된다 .
 
 
+
+*주의사항
+! @Model 과 @model 은 서로 다르다 
+@model @model을 하나의 view 에서 2개 이상을 쓸경우 오류가난다 .
