@@ -1,0 +1,48 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New</title>
+</head>
+<body>
+    <h1> hello world </h1>
+
+    <div class="form-items">
+
+
+        <form method="POST" action="Index">
+            First Name: <input type="text" name="fname"><br>
+            Last Name: <input type="text" name="lname"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+        
+    <input tpye="text" name="Userid" id="Userid" />
+    <input type="password" name="password" id="password" />
+    <input type="button" value="button" id="button" name="button" />
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+	$(document)
+        .on('click', '#button', function () {
+			//===>insert<===//
+			$.ajax({
+                url: 'Index',//호출될 서블릿의 경로(이름)
+				method: 'get',//데이터 전송방식 get/post
+				//전송할 데이터(쿼리스트링)//
+                data: 'Userid=' + $('input[name=Userid]').val() + '&password=' + $('input[name=password]').val(),
+				dataType: 'text',//반환받을 데이터 타입
+				beforeSend: function () { },
+				success: function (txt) {//호출 성공해서 완료하면
+					alert("Success");
+				},
+				complete: function () {
+					alert("hi");
+				}
+
+			})
+		})
+	</script>
+
