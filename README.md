@@ -61,3 +61,6 @@ view 에서는 컨트롤러에서 return 한 값을 사용하기위해서 @Model
 *주의사항
 ! @Model 과 @model 은 서로 다르다 
 @model @model을 하나의 view 에서 2개 이상을 쓸경우 오류가난다 .
+
+
+*Ajax 비동기 통신방법추가 
