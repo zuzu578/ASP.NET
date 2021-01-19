@@ -1,0 +1,94 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Mvc.Ajax;
+
+namespace WebAspNetAjax001.Controllers
+{
+    public class HomeController : Controller
+    {
+        //이동을 하게끔하는 Method,Parameter( ) 를 form 으로 받는 method 
+        public ActionResult Ajax()
+        {
+           // <form> //
+            String Param1 = Request.QueryString["Param1"];
+            Console.WriteLine(Param1);
+            ViewData["Param1"] = Param1;
+            return View("Ajax");
+        
+        }
+        //$ajax //
+        public String ExAjax()
+        {
+            String Param1 = Request.QueryString["Param1"];
+            Console.WriteLine(Param1);
+
+
+            return Param1;
+        }
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ajax</title>
+    <style>
+        .Ajax-Example{
+
+            width:500px;
+            margin:0 auto;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="Ajax-Example">
+        <input type="text" name="param1" id="param1" /><br />
+
+        <input type="text" name="read" id="read" readonly /><br />
+        <input type="button" name="button" id="button" value="button" />
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+    $(document)
+        .on("click", "#button", function () {
+            $.ajax({
+                url: "ExAjax",
+                type: "get",
+                //dataType : "json",
+                data: {
+                    "param1": $("#param1").val()
+                },
+
+                success: function (txt) {
+                    alert("success");
+                    $("#read").val(txt);
+
+                }
+            });
+            });
+
+
+</script>
+
+
