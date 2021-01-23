@@ -1,4 +1,4 @@
-﻿@model Solution001.Models.UserModel
+﻿@model POSTAPI.Models.Userinfo
 
 @{
     Layout = null;
@@ -10,10 +10,8 @@
     <title>Result</title>
 </head>
 <body>
-    <h1> Result Page </h1>
-    <p> 아이디:@Model.fname</p>
-    <p> 비밀번호: @Model.lname </p>
-
+    <h1>  @Model.userid </h1>
+    <h1> @Model.userpassword</h1>
 </body>
 </html>
 
